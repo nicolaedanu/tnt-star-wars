@@ -11,6 +11,13 @@ export class SearchFormPage {
     birthYearField: ElementFinder;
     eyeColorField: ElementFinder;
     skinColorField: ElementFinder;
+
+    // planet items
+    planetNameField: ElementFinder;
+    populationField: ElementFinder;
+    climateField: ElementFinder;
+    gravityField: ElementFinder;
+
     constructor() {
         this.queryInput = element(by.id('query'));
         this.peopleRadioBtn = element(by.id('people'));
@@ -23,6 +30,12 @@ export class SearchFormPage {
         this.birthYearField = element(by.name('birth-year'));
         this.eyeColorField = element(by.name('eye-color'));
         this.skinColorField = element(by.name('skin-color'));
+
+        // planet items
+        this.planetNameField = element(by.name('planet-name'));
+        this.populationField = element(by.name('population'));
+        this.climateField = element(by.name('climate'));
+        this.gravityField = element(by.name('gravity'));
 
     }
 
