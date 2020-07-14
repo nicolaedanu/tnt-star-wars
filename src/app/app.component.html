@@ -10,17 +10,17 @@
 
       <div *ngIf="isLoading">Loading...</div>
 
-      <div *ngIf="isNotFound(searchResult, isLoading)">Not found.</div>
+      <div *ngIf="isNotFound(searchResult, isLoading)" id="no-result">Not found.</div>
 
       <div *ngIf="!isLoading">
-        <div *ngIf="searchType === 'people'">
+        <div *ngIf="searchType === 'people'" id="people-result">
           <div *ngFor="let character of searchResult">
             <app-character [character]="character"></app-character>
             <br>
           </div>
         </div>
 
-        <div *ngIf="searchType === 'planets'">
+        <div *ngIf="searchType === 'planets'"  id="planet-result">
           <div *ngFor="let planet of searchResult">
             <app-planet [planet]="planet"></app-planet>
             <br>
