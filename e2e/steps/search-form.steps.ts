@@ -1,7 +1,7 @@
 import { Given, When, Then } from 'cucumber';
 import { SearchFormPage } from '../page-objects/search-form.po';
 import * as chai from 'chai';
-import { browser, ExpectedConditions, by } from 'protractor';
+import { browser, ExpectedConditions } from 'protractor';
 import { PlanetsPage } from '../page-objects/planets.po';
 import { PeoplePage } from '../page-objects/people.po';
 
