@@ -1,12 +1,18 @@
 Feature: Search for a Star Wars character
     
-    Scenario Outline: Search by full name
+    Scenario: Search by full name
         Given I navigate to "localhost"
         When I search for "Luke Skywalker" name
-        Then I see person gender: "<gender>", birth year: "<birthYear>", eye color: "<eyeColor>" and skin color: "<skinColor>"
-    Examples:
+        Then I see person gender: "male", birth year: "19BBY", eye color: "blue" and skin color: "fair"
+
+    Scenario: Search by name
+        Given I navigate to "localhost"
+        When I search for "Darth" name
+        Then I get "2" results 
     | gender | birthYear | eyeColor | skinColor|
-    | male   | 19BBY     | blue     | fair     |
+    | male   | 41.9BBY   | yellow   | white    |
+    | male   | 54BBY     | yellow   | red      |
+
 
     Scenario Outline: Search by planet
         Given I navigate to "localhost"

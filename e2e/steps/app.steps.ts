@@ -1,7 +1,7 @@
 import { Given, When, Then, Before } from "cucumber";
 import { SearchFormPage } from "../page-objects/search-form.po";
 import * as chai from 'chai';
-import { browser, ExpectedConditions } from "protractor";
+import { browser, ExpectedConditions, by } from "protractor";
 // import * as chaiAsPromissed from 'chai-as-promised';
 
 const expect = chai.expect;
@@ -32,3 +32,17 @@ Then('I see person population: {string}, climate: {string} and gravity: {string}
     expect(await searchForm.climateField.getText()).to.equal(climate);
     expect(await searchForm.gravityField.getText()).to.equal(gravity);
 })
+
+Then('I get {string} results', async (results, dataTable) => {
+    expect(await searchForm.peopleResult.count()).to.equal(+results)
+    
+    const charactersData = await searchForm.peopleResult;
+    const testData = dataTable.hashes();
+
+    for (let index = 0; index < testData.length; index++) {
+        expect(testData[index].gender).to.equal(await charactersData[index].element(by.name('gender')).getText())
+        expect(testData[index].birthYear).to.equal(await charactersData[index].element(by.name('birth-year')).getText())
+        expect(testData[index].eyeColor).to.equal(await charactersData[index].element(by.name('eye-color')).getText())
+        expect(testData[index].skinColor).to.equal(await charactersData[index].element(by.name('skin-color')).getText())
+    }
+  });

@@ -11,6 +11,7 @@ export class SearchFormPage {
     birthYearField: ElementFinder;
     eyeColorField: ElementFinder;
     skinColorField: ElementFinder;
+    peopleResult: ElementArrayFinder;
 
     // planet items
     planetNameField: ElementFinder;
@@ -30,6 +31,7 @@ export class SearchFormPage {
         this.birthYearField = element(by.name('birth-year'));
         this.eyeColorField = element(by.name('eye-color'));
         this.skinColorField = element(by.name('skin-color'));
+        this.peopleResult = element.all(by.css('#people-result app-character'));
 
         // planet items
         this.planetNameField = element(by.name('planet-name'));
