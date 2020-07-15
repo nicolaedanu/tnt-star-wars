@@ -14,12 +14,15 @@ const people = new PeoplePage();
 Given('I navigate to {string}', async (url) => {
     await searchForm.navigateTo(url);
 });
+
 When('I search for {string} name',  async (name) => {
     await searchForm.searchForPeople(name);
 });
+
 Then('I see person gender: {string}, birth year: {string}, eye color: {string} and skin color: {string}'
 , async (gender, birthYear, eyeColor, skinColor) => {
     await browser.wait(ExpectedConditions.visibilityOf(people.nameField), 5000);
+
     expect(await people.genderField.getText()).to.equal(gender);
     expect(await people.birthYearField.getText()).to.equal(birthYear);
     expect(await people.eyeColorField.getText()).to.equal(eyeColor);
@@ -30,8 +33,10 @@ When('I search for {string} planet', async (planet) => {
     await searchForm.searchForPlanets(planet);
 });
 
-Then('I see person population: {string}, climate: {string} and gravity: {string}', async (population, climate, gravity) => {
+Then('I see person population: {string}, climate: {string} and gravity: {string}'
+, async (population, climate, gravity) => {
     await browser.wait(ExpectedConditions.visibilityOf(planets.planetNameField), 5000);
+
     expect(await planets.populationField.getText()).to.equal(population);
     expect(await planets.climateField.getText()).to.equal(climate);
     expect(await planets.gravityField.getText()).to.equal(gravity);

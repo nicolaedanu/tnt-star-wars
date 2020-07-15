@@ -1,5 +1,9 @@
 import { ElementFinder, element, by } from 'protractor';
 
+/*
+* PlanetsPage class that stores all elements and functions
+* related to planets-result
+*/
 export class PlanetsPage {
     planetNameField: ElementFinder;
     populationField: ElementFinder;

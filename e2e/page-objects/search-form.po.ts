@@ -1,5 +1,9 @@
 import {ElementFinder, element, by, browser} from 'protractor';
 
+/*
+* SearchFormPage class that stores all elements and functions
+* related to card-body
+*/
 export class SearchFormPage {
     queryInput: ElementFinder;
     peopleRadioBtn: ElementFinder;
@@ -23,12 +27,14 @@ export class SearchFormPage {
     async searchForPeople(queryValue: string) {
         await this.peopleRadioBtn.click();
         await this.queryInput.sendKeys(queryValue);
+        // we could potentially check here if queryInput.getAttribute('value') is queryValue
         await this.searchButton.click();
     }
 
     async searchForPlanets(queryValue: string) {
         await this.planetsRadioBtn.click();
         await this.queryInput.sendKeys(queryValue);
+        // we could potentially check here if queryInput.getAttribute('value') is queryValue
         await this.searchButton.click();
     }
 }

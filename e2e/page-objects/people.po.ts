@@ -1,5 +1,9 @@
-import { ElementFinder, ElementArrayFinder, element, by } from 'protractor';
+import { ElementFinder, ElementArrayFinder, $, $$} from 'protractor';
 
+/*
+* PeoplePage class that stores all elements and functions
+* related to people-result
+*/
 export class PeoplePage {
     nameField: ElementFinder;
     genderField: ElementFinder;
@@ -9,11 +13,11 @@ export class PeoplePage {
     peopleResult: ElementArrayFinder;
 
     constructor() {
-        this.nameField = element(by.name('char-name'));
-        this.genderField = element(by.name('gender'));
-        this.birthYearField = element(by.name('birth-year'));
-        this.eyeColorField = element(by.name('eye-color'));
-        this.skinColorField = element(by.name('skin-color'));
-        this.peopleResult = element.all(by.css('#people-result app-character'));
+        this.nameField = $('[name="char-name"]');
+        this.genderField = $('[name="gender"]');
+        this.birthYearField = $('[name="birth-year"]');
+        this.eyeColorField = $('[name="eye-color"]');
+        this.skinColorField = $('[name="skin-color"]');
+        this.peopleResult = $$('#people-result app-character');
     }
 }
